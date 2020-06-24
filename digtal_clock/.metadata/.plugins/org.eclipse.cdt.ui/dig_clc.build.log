@@ -1,0 +1,36 @@
+13:40:03 **** Incremental Build of configuration Debug for project dig_clc ****
+make all 
+Building file: ../digc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"digc.d" -MT"digc.d" -c -o "digc.o" "../digc.c"
+In file included from ../digc.c:8:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../digc.c
+ 
+Building target: dig_clc.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,dig_clc.map -mmcu=atmega16 -o "dig_clc.elf"  ./digc.o   
+Finished building target: dig_clc.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S dig_clc.elf  >"dig_clc.lss"
+Finished building: dig_clc.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 dig_clc.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5232 bytes (31.9% Full)
+(.text + .data + .bootloader)
+
+Data:         13 bytes (1.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:40:03 Build Finished (took 670ms)
+

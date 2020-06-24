@@ -1,0 +1,38 @@
+/*
+ * digc.c
+ *
+ *  Created on: Jan 28, 2020
+ *      Author: 20114
+ */
+#include<avr/io.h>
+#include<util/delay.h>
+unsigned char g_counter=0;
+unsigned char g_sec=0;
+unsigned char g_min=0;
+unsigned char g_hour=0;
+#define NUMBER_OF_OVERFLOWS_PER_SECOND 4
+
+void timer0_init_ovf(void){
+	TCCR0= (1<<CS02) | (1<<CS00);
+	TCNT0=0;
+}
+int main(){
+	DDRC = 0xFF;
+PORTC =0xF0;
+DDRA=0xFF;
+PORTA= 0x00;
+while(1){
+
+	for (int i=1;i<6;i++){
+		PORTA = (PORTA & 0xF0) | (i & 0x0F);
+	PORTC = (PORTC & 0xF0) | (g_counter & 0x0F);
+	if (g_counter==9){
+		g_counter=0;
+	}
+	else{
+		counter++;
+	}
+	_delay_ms(500);
+}
+}
+}
